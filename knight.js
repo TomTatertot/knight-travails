@@ -24,9 +24,9 @@ function knightMoves(startVertex, endVertex){
       }
     }
   }
-  console.log(discoveredNodes);
 }
 
+//Backtracks from the end node to the start node to get the shortest path.
 function shortestPathArray(node){
   let result = [];
   let currNode = node;
@@ -42,6 +42,7 @@ function nodeInArray(node, nodeArray) {
 }
 
 function findAdjacentNodes(vertex){
+  //array of tiles that the knight can move to
   const adjacentTiles = [
     [vertex.x + 1, vertex.y + 2],
     [vertex.x + 2, vertex.y + 1],
@@ -53,6 +54,7 @@ function findAdjacentNodes(vertex){
     [vertex.x - 1, vertex.y + 2],
   ];
 
+  //array of nodes on valid positions (not out of bounds)
   const adjacentNodes = [];
   adjacentTiles.forEach((tile) => {
     const xPos = tile[0];
@@ -63,5 +65,6 @@ function findAdjacentNodes(vertex){
 
   return adjacentNodes;
 }
-const test = knightMoves([0,0],[7,7]);
+
+const test = knightMoves([0,0],[1,2]);
 console.log(test);
